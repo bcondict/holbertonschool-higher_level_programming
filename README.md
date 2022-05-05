@@ -11,4 +11,3 @@ you have some choices:
 1. typing `quit()`.
 2. typing end-of-file character `ctrl+d`.
 
-Jesús Junco
