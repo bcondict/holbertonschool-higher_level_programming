@@ -13,11 +13,11 @@ if __name__ == "__main__":
         a = int(argv[1])
         b = int(argv[3])
         if argv[2] == "+":
-            print("{} + {} = {}".format(argv[2], argv[4], add(a, b)))
+            print("{} + {} = {}".format(argv[1], argv[3], add(a, b)))
         elif argv[2] == "-":
-            print("{} - {} = {}".format(argv[2], argv[4], sub(a, b)))
+            print("{} - {} = {}".format(argv[1], argv[3], sub(a, b)))
         elif argv[2] == "*":
-            print("{} * {} = {}".format(argv[2], argv[4], mul(a, b)))
+            print("{} * {} = {}".format(argv[1], argv[3], mul(a, b)))
         else:
-            print("{} / {} = {}".format(argv[2], argv[4], div(a, b)))
+            print("{} / {} = {}".format(argv[1], argv[3], div(a, b)))
         sys.exit(0)
