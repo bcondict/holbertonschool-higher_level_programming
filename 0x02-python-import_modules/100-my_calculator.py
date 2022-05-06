@@ -20,3 +20,4 @@ if __name__ == "__main__":
             print("{} * {} = {}".format(argv[2], argv[4], mul(a, b)))
         else:
             print("{} / {} = {}".format(argv[2], argv[4], div(a, b)))
+        return 0
