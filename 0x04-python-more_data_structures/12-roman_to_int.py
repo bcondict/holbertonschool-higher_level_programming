@@ -8,4 +8,5 @@ def roman_to_int(roman_string):
                 num += letter[roman_string[i]] - letter[roman_string[i-1]] * 2
             else:
                 num += letter[roman_string[i]]
-    return num
+        return num
+    return 0
