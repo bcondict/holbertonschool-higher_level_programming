@@ -7,7 +7,7 @@
 * Return: a pointer to the last node int linked list
 */
 
-listint_t *reverse_listint(listint **head)
+listint_t *reverse_listint(listint_t **head)
 {
 	listint_t *prev = NULL, *next = NULL;
 
@@ -30,7 +30,7 @@ listint_t *reverse_listint(listint **head)
 */
 int is_palindrome(listint_t **head)
 {
-	listint_t *slow = NULL, *fast = NULL
+	listint_t *slow = NULL, *fast = NULL;
 
 	slow = *head;
 	fast = *head;
