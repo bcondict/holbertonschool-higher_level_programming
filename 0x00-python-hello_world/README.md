@@ -39,3 +39,5 @@ type `python3` on the shell
 ### How to use strings
 
 ### What are indexing and slicing in Python
+
+-Jesus
