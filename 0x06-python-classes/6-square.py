@@ -6,8 +6,8 @@ class Square:
 
     """ define a squeare with 'size' size  and type and value error"""
     def __init__(self, size=0, position=(0, 0)):
-        self.size = size
-        self.position = position
+        self.__size = size
+        self.__position = position
 
     @property
     def size(self):
@@ -18,9 +18,10 @@ class Square:
     def size(self, value):
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
-        if (value < 0):
+        elif (value < 0):
             raise ValueError("size must be >= 0")
-        self.__size = value
+        else:
+            self.__size = value
 
     @property
     def position(self):
@@ -33,7 +34,8 @@ class Square:
                 or isinstance(value[1], int) is false\
                 or value[0] < 0 or value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = value
+        else:
+            self.__position = value
 
     """ define area of square """
     def area(self):
