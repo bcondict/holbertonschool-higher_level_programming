@@ -42,12 +42,11 @@ class Square:
     def my_print(self):
         if self.__size == 0:
             print("")
-        else:
-            for top_sapce in range(self.__position[1]):
-                print("")
-            for height in range(self.__size):
-                for middle_sapce in range(self.__position[0]):
-                    print(" ", end="")
-                for width in range(self.__size):
-                    print("#", end="")
-                print("")
+        for top_sapce in range(self.__position[1]):
+            print("")
+        for height in range(self.__size):
+            for middle_sapce in range(self.__position[0]):
+                print(" ", end="")
+            for width in range(self.__size):
+                print("#", end="")
+            print("")
