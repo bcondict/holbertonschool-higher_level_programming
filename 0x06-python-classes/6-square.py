@@ -9,9 +9,6 @@ class Square:
         self.__size = size
         self.__position = position
 
-    """ define area of square """
-    def area(self):
-        return (self.__size ** 2)
 
     @property
     def size(self):
@@ -40,15 +37,20 @@ class Square:
         else:
             self.__position = value
 
+    """ define area of square """
+    def area(self):
+        return (self.__size ** 2)
+
 
     def my_print(self):
         if self.__size == 0:
             print("")
-        for top_sapce in range(self.__position[1]):
-            print("")
-        for height in range(self.__size):
-            for middle_sapce in range(self.__position[0]):
-                print(" ", end="")
-            for width in range(self.__size):
-                print("#", end="")
-            print("")
+        else:
+            for top_sapce in range(self.__position[1]):
+                print("")
+            for height in range(self.__size):
+                for middle_sapce in range(self.__position[0]):
+                    print(" ", end="")
+                for width in range(self.__size):
+                    print("#", end="")
+                print("")
