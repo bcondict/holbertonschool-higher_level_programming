@@ -3,7 +3,6 @@
 
 
 class Square:
-    import sys
 
     """ define a squeare with 'size' size  and type and value error"""
     def __init__(self, size=0):
