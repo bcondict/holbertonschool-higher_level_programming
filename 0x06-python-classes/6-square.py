@@ -6,8 +6,8 @@ class Square:
 
     """ define a squeare with 'size' size  and type and value error"""
     def __init__(self, size=0, position=(0, 0)):
-        self.size = size
-        self.position = position
+        self.__size = size
+        self.__position = position
 
     @property
     def size(self):
@@ -46,11 +46,11 @@ class Square:
         if (self.size == 0):
             print()
         else:
-            for top_sapce in range(self.__position[1]):
+            for top_sapce in range(self.position[1]):
                 print()
-            for height in range(self.__size):
-                for middle_sapce in range(self.__position[0]):
+            for height in range(self.size):
+                for middle_sapce in range(self.position[0]):
                     print(" ", end="")
-                for width in range(self.__size):
+                for width in range(self.size):
                     print("#", end="")
                 print()
