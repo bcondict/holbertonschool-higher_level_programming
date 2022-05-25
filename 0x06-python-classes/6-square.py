@@ -6,12 +6,12 @@ class Square:
 
     """ define a squeare with 'size' size  and type and value error"""
     def __init__(self, size=0, position=(0, 0)):
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
-        return(self.size)
+        return self._size
 
     @size.setter
     def size(self, value):
@@ -19,11 +19,11 @@ class Square:
             raise TypeError("size must be an integer")
         elif value < 0:
             raise ValueError("size must be >= 0")
-        self.size = value
+        self._size = value
 
     @property
     def position(self):
-        return(self.position)
+        return self._position
 
     @position.setter
     def position(self, value):
@@ -33,12 +33,13 @@ class Square:
                 or value[0] < 0 or value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         else:
-            self.position = value
+            self._position = value
 
     """ define area of square """
     def area(self):
         return (self.size ** 2)
 
+    """ My print - Prints the square using # at given position """
     def my_print(self):
         if (self.size == 0):
             print()
