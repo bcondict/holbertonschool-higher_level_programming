@@ -6,8 +6,8 @@ class Square:
 
     """ define a squeare with 'size' size  and type and value error"""
     def __init__(self, size=0, position=(0, 0)):
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -38,14 +38,16 @@ class Square:
     """ define area of square """
     def area(self):
         return (self.__size ** 2)
-    def my_print(self):
-        """Print the square with the # character."""
-        if self.__size == 0:
-            print("")
-            return
 
-        [print("") for i in range(0, self.__position[1])]
-        for i in range(0, self.__size):
-            [print(" ", end="") for j in range(0, self.__position[0])]
-            [print("#", end="") for k in range(0, self.__size)]
-            print("")
+    def my_print(self):
+        if (self.__size == 0):
+            print()
+        else:
+            for top_sapce in range(self.__position[1]):
+                print()
+            for height in range(self.__size):
+                for middle_sapce in range(self.__position[0]):
+                    print(" ", end="")
+                for width in range(self.__size):
+                    print("#", end="")
+                print()
