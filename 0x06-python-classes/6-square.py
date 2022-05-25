@@ -11,7 +11,7 @@ class Square:
 
     @property
     def size(self):
-        return(self.__size)
+        return(self._size)
 
     @size.setter
     def size(self, value):
@@ -19,11 +19,11 @@ class Square:
             raise TypeError("size must be an integer")
         elif value < 0:
             raise ValueError("size must be >= 0")
-        self.__size = value
+        self._size = value
 
     @property
     def position(self):
-        return(self.__position)
+        return(self._position)
 
     @position.setter
     def position(self, value):
@@ -33,21 +33,21 @@ class Square:
                 or value[0] < 0 or value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         else:
-            self.__position = value
+            self._position = value
 
     """ define area of square """
     def area(self):
-        return (self.__size ** 2)
+        return (self.size ** 2)
 
     def my_print(self):
-        if (self.__size == 0):
+        if (self.size == 0):
             print()
         else:
-            for top_sapce in range(self.__position[1]):
+            for top_sapce in range(self.position[1]):
                 print()
-            for height in range(self.__size):
-                for middle_sapce in range(self.__position[0]):
+            for height in range(self.size):
+                for middle_sapce in range(self.position[0]):
                     print(" ", end="")
-                for width in range(self.__size):
+                for width in range(self.size):
                     print("#", end="")
                 print()
