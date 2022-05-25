@@ -3,6 +3,7 @@
 
 
 class Square:
+    import sys
 
     """ define a squeare with 'size' size  and type and value error"""
     def __init__(self, size=0):
@@ -26,7 +27,9 @@ class Square:
             self.__size = value
 
     def my_print(self):
-        if self.__size == 0:
-            print("\n")
+        if self.size == 0:
+            print("")
         for i in range(self.__size):
-            print("#" * self.__size)
+            for j in range(self.__size):
+                print("#", end="")
+            print("")
