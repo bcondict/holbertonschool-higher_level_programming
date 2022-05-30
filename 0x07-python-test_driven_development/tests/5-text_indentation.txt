@@ -1,0 +1,33 @@
+5-text_indentation
+==================
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+    >>> text_indentation("Hello. How. Are. You?")
+    Hello.
+    <BLANKLINE>
+    How.
+    <BLANKLINE>
+    Are.
+    <BLANKLINE>
+    You?
+    <BLANKLINE>
+
+    >>> text_indentation(1)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+    >>> text_indentatio(".")
+    .
+
+    >>> text_indentation([a, b, c])
+    Traceback (most recent call last):
+    ...
+    NameError: name 'a' is not defined
+
+    >>> text_indentation(". hello .")
+    .
+    <BLANKLINE>
+    hello .
+    <BLANKLINE>

@@ -1,6 +1,35 @@
 3-say_my_name
 =============
 
-    >>> say_my_name = __import__('2-matrix_divided').matrix_divided
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
 
     >>> say_my_name("Jesus", "Junco")
+    My name is Jesus Junco
+
+    >>> say_my_name(None, "Junco")
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name("Jesus")
+    My name is Jesus
+
+    >>> say_my_name("Jesus", None)
+    Traceback (most recent call last):
+    ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name(1, "Junco")
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name("Jesus", 1)
+    Traceback (most recent call last):
+    ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Jesus", "Junco", "Castro")
+    Traceback (most recent call last):
+    ...
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
