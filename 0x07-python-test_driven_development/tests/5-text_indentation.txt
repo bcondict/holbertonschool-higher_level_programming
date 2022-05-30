@@ -18,8 +18,9 @@
     ...
     TypeError: text must be a string
 
-    >>> text_indentatio(".")
+    >>> text_indentation(".")
     .
+    <BLANKLINE>
 
     >>> text_indentation([a, b, c])
     Traceback (most recent call last):
@@ -31,3 +32,23 @@
     <BLANKLINE>
     hello .
     <BLANKLINE>
+
+    >>> text_indentation(".hello:how? and me?")
+    .
+    <BLANKLINE>
+    hello:
+    <BLANKLINE>
+    how?
+    <BLANKLINE>
+    and me?
+    <BLANKLINE>
+
+    >>> text_indentation()
+    Traceback (most recent call last):
+    ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+    >>> text_indentation("    Hello    ")
+    Hello
+
+    >>>

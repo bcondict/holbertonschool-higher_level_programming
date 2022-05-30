@@ -12,7 +12,7 @@ def text_indentation(text):
                 continue
             print(text[n_t])
             print()
-        elif text[n_t] == ' ' and less == '.' or less == ':' or less == '?' and n_t > 0:
+        elif ((text[n_t] == ' ') and (less == '.' or less == ':' or less == '?') and (n_t > 0)):
             continue
         else:
             print(text[n_t], end="")
