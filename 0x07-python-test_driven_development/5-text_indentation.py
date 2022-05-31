@@ -3,6 +3,7 @@
 
 
 def text_indentation(text):
+    """ idents a text by addiong 2 new lines after chars (.?:)"""
     if not isinstance(text, str):
         raise TypeError("text must be a string")
     for n_t in range(len(text)):
