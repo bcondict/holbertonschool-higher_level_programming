@@ -39,5 +39,11 @@ class TestMaxInteger(unittest.TestCase):
     def test_int_as_str(self):
         self.assertEqual(max_integer(['1', '2', '3']), '3')
 
+    def test_none(self):
+        self.assertIsNone(max_integer([]), None)
+    
+    def test_unique(self):
+        self.assertEqual(max_integer([1]), 1)
+
 if __name__ == '__main__':
     unittest.main()
