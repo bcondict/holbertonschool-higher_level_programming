@@ -12,7 +12,7 @@
     TypeError: first_name must be a string
 
     >>> say_my_name("Jesus")
-    My name is Jesus
+    My name is Jesus 
 
     >>> say_my_name("Jesus", None)
     Traceback (most recent call last):
