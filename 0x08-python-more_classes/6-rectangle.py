@@ -4,6 +4,8 @@
 
 class Rectangle:
 
+    number_of_instance = 0
+
     """defines rectangle with tidth and height"""
     def __init__(self, width=0, height=0):
         self.width = width
