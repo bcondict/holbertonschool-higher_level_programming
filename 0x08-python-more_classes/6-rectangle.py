@@ -4,7 +4,7 @@
 
 class Rectangle:
 
-    number_of_instances = 1
+    number_of_instances = 0
 
 
     """defines rectangle with tidth and height"""
