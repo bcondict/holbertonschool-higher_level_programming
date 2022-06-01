@@ -3,15 +3,15 @@
 
 
 class Rectangle:
+    """ Representation of a rectangle """
 
     number_of_instances = 0
 
-
-    """defines rectangle with tidth and height"""
     def __init__(self, width=0, height=0):
+        """defines rectangle with tidth and height"""
         self.width = width
         self.height = height
-        self.__class__.number_of_instances += 1
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
