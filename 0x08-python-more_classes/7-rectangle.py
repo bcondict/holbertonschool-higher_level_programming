@@ -55,8 +55,9 @@ class Rectangle:
     def __str__(self):
         """print # to representate rectangle """
         new_str = ""
+        charac = self.print_symbol
         if self.height != 0 and self.width != 0:
-            new_str = ("{}".format(self.print_symbol) * self.width + "\n") * self.height
+            new_str = ("{}".format(charac) * self.width + "\n") * self.height
             new_str = new_str[:-1]
         return new_str
 
