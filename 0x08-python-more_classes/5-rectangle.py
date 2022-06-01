@@ -58,7 +58,7 @@ class Rectangle:
     def __repr__(self) -> str:
         """representation of width and height"""
         return("Rectangle({}, {})".format(self.width, self.height))
-    
+
     def __del__(self):
         """print a message"""
         print("Bye rectangle...")
