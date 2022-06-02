@@ -3,5 +3,4 @@
 
 
 class LockedClass():
-    def first_name(self, name):
-        self.first_name = name
+    __slots__ = "first_name"
