@@ -8,7 +8,6 @@ adding elements of a list:
     	>>> len(sizeOfmod) > 1
     	True
 
-
     >>> my_list = MyList()
     >>> my_list.append(1)
     >>> my_list.append(3)
