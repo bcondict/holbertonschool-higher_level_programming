@@ -36,3 +36,8 @@ is instance of the class list:
     >>> my_list = MyList()
     >>> isinstance(my_list, list)
     True
+
+Checking for method docstring:
+    >>> sizeOfmod = __import__("1-my_list").MyList.print_sorted.__doc__
+	>>> len(sizeOfmod) > 1
+	True
