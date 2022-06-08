@@ -1,0 +1,41 @@
+7-base_geometry
+===============
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Checking area case:
+    >>> bg = BaseGeometry()
+    >>> bg.area()
+    Traceback (most recent call last):
+        ...
+    Exception: area() is not implemented
+
+    >>> bg.area(53)
+    Traceback (most recent call last):
+        ...
+    TypeError: area() takes 1 positional argument but 2 were given
+
+Checking normal cases:
+    >>> bg.integer_validator("my_int", 12)
+    >>> bg.integer_validator("", 7)
+
+non integer type:
+    >>> bg.integer_validator("name", (1, 2))
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
+    >>> bg.integer_validator("None", None)
+    Traceback (most recent call last):
+        ...
+    TypeError: None must be an integer
+
+    >>> bg.integer_validator(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+    
+    >>> bg.integer_validator("name", -6)
+    Traceback (most recent call last):
+        ...
+    ValueError: name must be greater than 0
