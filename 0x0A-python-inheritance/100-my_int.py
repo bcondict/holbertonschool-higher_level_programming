@@ -6,8 +6,8 @@ class MyInt(int):
     """invert bitways operator"""
     def __eq__(self, other):
         """ invert == operator"""
-        return super().__eq__(other)
+        return super().__ne__(other)
 
     def __ne__(self, other):
         """invert != operator"""
-        return super().__ne__(other)
+        return super().__eq__(other)
