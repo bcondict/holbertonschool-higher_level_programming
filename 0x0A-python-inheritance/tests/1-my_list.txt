@@ -4,10 +4,6 @@
     >>> MyList = __import__('1-my_list').MyList
 
 adding elements of a list:
-    >>> sizeOfmod = __import__("1-my_list").MyList.print_sorted.__doc__
-    >>> len(sizeOfmod) > 1
-    True
-
     >>> my_list = MyList()
     >>> my_list.append(1)
     >>> my_list.append(3)
