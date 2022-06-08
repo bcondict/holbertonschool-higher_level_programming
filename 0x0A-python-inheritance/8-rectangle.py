@@ -9,6 +9,6 @@ class Rectangle(BaseGeometry):
     """validate if width or height are int and set it private"""
     def __init__(self, width, height):
         self.integer_validator("width", width)
-        self.integer_validator("heigh", height)
         self.__width = width
+        self.integer_validator("height", height)
         self.__height = height
