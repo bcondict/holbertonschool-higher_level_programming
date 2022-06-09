@@ -19,7 +19,7 @@ class Student:
             if attr in self.__dict__.keys():
                 new_dict[attr] = self.__dict__[attr]
         return new_dict
-    
+ 
     def reload_from_json(self, json):
         """ Replace attributes of the student instance """
         for key, value in json.items():
