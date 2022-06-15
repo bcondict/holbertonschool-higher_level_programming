@@ -59,7 +59,7 @@ class TestBase(unittest.TestCase):
             b1 = Base(1, 2)
 
     def testTo_Json_String(self):
-        """"""
+        """test to change a dictionary to json file"""
         r1 = Rectangle(1, 2, 3, 4)
         dic1 = r1.to_dictionary()
         json_dic = Base.to_json_string([dic1])
@@ -67,16 +67,19 @@ class TestBase(unittest.TestCase):
         self.assertEqual(dic_json, [dic1])
 
     def testSave_To_fileNoArg(self):
+        """test error no something to save into json file"""
         s1 = Square(1)
         with self.assertRaises(TypeError):
             s1.save_to_file()
 
     def testSave_To_fileMoreArgs(self):
+        """test error given more then needed to save into json file"""
         r1 = Rectangle(1, 2)
         with self.assertRaises(TypeError):
             r1.save_to_file([r1], [])
 
     def testFrom_Json_to_string(self):
+        """test normal use for from_json_string method"""
         list_input = [
             {'id': 89, 'width': 10, 'height': 4},
             {'id': 7, 'width': 1, 'height': 7}
@@ -88,16 +91,19 @@ class TestBase(unittest.TestCase):
         self.assertIsInstance(list_output[1], dict)
 
     def testFrom_Json_to_stringEmpty(self):
+        """test no given something to save"""
         with self.assertRaises(TypeError):
             list_output = Base.from_json_string()
 
     def testCreate(self):
+        """normal use for create method"""
         r1 = Rectangle(3, 5, 1)
         r1_dictionary = r1.to_dictionary()
         r2 = Rectangle.create(**r1_dictionary)
         self.assertIsInstance(r2, Rectangle)
 
     def testCreateMoreArgs(self):
+        """test create method with more needed argument"""
         r1 = Rectangle(3, 5, 1)
         r1_dictionary = r1.to_dictionary()
         r2 = Rectangle(3, 6, 2)
@@ -106,6 +112,7 @@ class TestBase(unittest.TestCase):
             r3 = Base.create(**r1_dictionary, **r1_dictionary)
 
     def testCreateNoDic(self):
+        """test create method with no given dictionary"""
         r1 = Rectangle(3, 5, 1)
         with self.assertRaises(TypeError):
             r2 = Base.create(r1)
