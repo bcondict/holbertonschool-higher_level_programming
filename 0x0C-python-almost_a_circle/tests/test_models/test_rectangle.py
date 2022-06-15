@@ -154,6 +154,19 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.x, 2)
         self.assertEqual(r1.y, 1)
 
+    def testUpdateMix(self):
+        """test with mixed args and kwargs"""
+        r1 = Rectangle(1, 2)
+        self.assertFalse(r1.update(1, 2, x=3, y=4, id=5))
+
+    def testTo_Dictionary(self):
+        """test normal use for to_dictionary method"""
+        r1 = Rectangle(1, 2, 3, 4, 5)
+        r1_dict = r1.to_dictionary()
+        output = {'id': 5, 'width': 1, 'height': 2, 'x': 3, 'y': 4}
+        self.assertIsInstance(r1_dict, dict)
+        self.assertDictEqual(r1_dict, output)
+
 
 if __name__ == '__main__':
     unittest.main()
