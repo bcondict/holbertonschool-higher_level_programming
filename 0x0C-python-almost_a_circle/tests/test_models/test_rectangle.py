@@ -2,7 +2,7 @@
 """ unittest for Rectangle class"""
 
 import unittest
-import json
+import os
 
 from models.base import Base
 from models import rectangle
@@ -51,6 +51,15 @@ class TestRectangle(unittest.TestCase):
         """test error too few arguments"""
         with self.assertRaises(TypeError):
             r1 = Rectangle(1)
+
+    def testPrivateAttr(self):
+        """test try to acces to private attributes"""
+        r1 = Rectangle(1, 2)
+        with self.assertRaises(AttributeError):
+            r1.__width
+            r1.__height
+            r1.__x
+            r1.__y
 
     def testStringValue(self):
         """test string values"""
@@ -166,6 +175,43 @@ class TestRectangle(unittest.TestCase):
         output = {'id': 5, 'width': 1, 'height': 2, 'x': 3, 'y': 4}
         self.assertIsInstance(r1_dict, dict)
         self.assertDictEqual(r1_dict, output)
+
+    def testTo_DictionaryArgs(self):
+        """test to_dictionary passing args"""
+        r1 = Rectangle(1, 2)
+        with self.assertRaises(TypeError):
+            r1_dict = r1.to_dictionary(1, 2)
+
+    def testSave_To_File(self):
+        """tase normal use for save_to_file"""
+        r1 = Rectangle(1, 2, 3, 4, 5)
+        r2 = Rectangle(6, 7, 8, 9, 10)
+        if os.path.exists("Rectangle.json"):
+            os.remove("Rectangle.json")
+
+        Rectangle.save_to_file([r1, r2])
+        self.assertTrue(os.path.exists("Rectangle.json"))
+
+    def testSave_To_FileNone(self):
+        """test save_to_file saving nothing"""
+        if os.path.exists("Rectangle.json"):
+            os.remove("Rectangle.json")
+
+        Rectangle.save_to_file(None)
+        self.assertTrue(os.path.exists("Rectangle.json"))
+        with open("Rectangle.json", 'r', encoding="utf-8") as f:
+            self.assertEqual("[]", f.read())
+
+    def testSave_To_FileEmpty(self):
+        """test save_to_file saving nothing"""
+        r1 = []
+        if os.path.exists("Rectangle.json"):
+            os.remove("Rectangle.json")
+
+        Rectangle.save_to_file(r1)
+        self.assertTrue(os.path.exists("Rectangle.json"))
+        with open("Rectangle.json", 'r', encoding="utf-8") as f:
+            self.assertEqual("[]", f.read())
 
 
 if __name__ == '__main__':

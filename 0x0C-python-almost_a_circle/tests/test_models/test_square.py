@@ -1,13 +1,10 @@
 #!/usr/bin/python3
 """ unittest for Square class"""
 
-from re import S
-from typing import Type
 import unittest
-import json
+import os
 
 from models.base import Base
-
 from models import square
 
 from io import StringIO
@@ -49,6 +46,14 @@ class TestSquare(unittest.TestCase):
         """test error no arguments"""
         with self.assertRaises(TypeError):
             s1 = Square()
+
+    def testPrivateAttr(self):
+        """test try to acces to private attributes"""
+        s1 = Square(1, 2)
+        with self.assertRaises(AttributeError):
+            s1.__size
+            s1.__x
+            s1.__y
 
     def testStr(self):
         """test string values"""
@@ -159,6 +164,42 @@ class TestSquare(unittest.TestCase):
         output = {'id': 4, 'size': 1, 'x': 2, 'y': 3}
         self.assertIsInstance(s1_dict, dict)
         self.assertDictEqual(s1_dict, output)
+
+    def testTo_DictionaryArgs(self):
+        """test to_dictionary passing args"""
+        s1 = Square(2)
+        with self.assertRaises(TypeError):
+            s1_dict = s1.to_dictionary(2)
+
+    def testSave_To_File(self):
+        """tase normal use for save_to_file"""
+        s1 = Square(1, 2, 3, 4)
+        s2 = Square(5, 6, 7, 8)
+        if os.path.exists("Square.json"):
+            os.remove("Square.json")
+
+        Square.save_to_file([s1, s2])
+        self.assertTrue(os.path.exists("Square.json"))
+
+    def testSave_To_FileNone(self):
+        """test save_to_file saving nothing"""
+        if os.path.exists("Square.json"):
+            os.remove("Square.json")
+
+        self.assertTrue(os.path.exists("Rectangle.json"))
+        with open("Rectangle.json", 'r', encoding="utf-8") as f:
+            self.assertEqual("[]", f.read())
+
+    def testSave_To_FileEmpty(self):
+        """test save_to_file saving nothing"""
+        s1 = []
+        if os.path.exists("Square.json"):
+            os.remove("Square.json")
+
+        Square.save_to_file(s1)
+        self.assertTrue(os.path.exists("Square.json"))
+        with open("Square.json", 'r', encoding="utf-8") as f:
+            self.assertEqual("[]", f.read())
 
 
 if __name__ == '__main__':
