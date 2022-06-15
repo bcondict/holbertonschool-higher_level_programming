@@ -5,10 +5,13 @@ import unittest
 import json
 
 from models.base import Base
-from models import rectangle
+
+from models import square
 
 from io import StringIO
 from unittest.mock import patch
+
+Square = square.Square
 
 
 class TestSquare(unittest.TestCase):
@@ -16,10 +19,10 @@ class TestSquare(unittest.TestCase):
         Base._Base__nb_objects = 0
 
     def testModuleDoc(self):
-        self.assertTrue(rectangle.__doc__)
+        self.assertTrue(square.__doc__)
 
     def testClassDoc(self):
-        self.assertTrue(Rectangle.__doc__)
+        self.assertTrue(Square.__doc__)
 
 
 if __name__ == '__main__':
