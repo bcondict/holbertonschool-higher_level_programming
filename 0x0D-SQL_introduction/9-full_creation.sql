@@ -1,4 +1,4 @@
---creates a table in the datebase and add multiples rows
+-- creates a table in the datebase and add multiples rows
 CREATE TABLE IF NOT EXISTS `second_table` (
     `id` INT,
     `name` VARCHAR(256),
