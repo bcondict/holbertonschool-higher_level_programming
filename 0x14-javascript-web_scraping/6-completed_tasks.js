@@ -4,18 +4,22 @@ const url = process.argv[2];
 const request = require('request');
 
 request(url, function (err, response, body) {
-  if (err) throw err;
+  if (err) console.log(err);
 
-  const json = JSON.parse(body);
-  const user = {};
+  else {
+    const json = JSON.parse(body);
+    const taksUser = {};
 
-  for (const name of json) {
-    if (!name.completed) continue;
-    const { id, completed } = name;
-    if (user[id] === undefined) {
-      user[id] = 0;
+    for (const item of json) {
+      if (!item.completed) {
+        continue;
+      }
+      const { userId, completed } = item;
+      if (taksUser[userId] === undefined) {
+        taksUser[userId] = 0;
+      }
+      taksUser[userId] += Number(completed);
     }
-    user[id] += Number(completed);
+    console.log(taksUser);
   }
-  console.log(user);
 });
