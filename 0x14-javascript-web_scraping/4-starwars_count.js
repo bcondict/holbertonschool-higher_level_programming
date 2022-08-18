@@ -9,8 +9,8 @@ request(apiUrl, function (err, response, body) {
     const movies = JSON.parse(body).results;
     let appearances = 0;
 
-    for (let film of movies) {
-      for (let character of film.characters) {
+    for (const film of movies) {
+      for (const character of film.characters) {
         if (character.includes('18')) {
           appearances++;
         }
